@@ -1,0 +1,58 @@
+# docker-compose build app 
+# docker-compose up -d
+# docker exec -it nosql-app bash
+# python import_mongo.py
+# python import_neo4j.py
+# exit
+
+version: "3.8"
+
+services:
+  mongo:
+    image: mongo:6
+    container_name: mongo
+    restart: unless-stopped
+    ports:
+      - "27017:27017"
+    volumes:
+      - ./data/mongo-db:/data/db
+    networks:
+      - nosql-net
+
+  neo4j:
+    image: neo4j:5
+    container_name: neo4j
+    restart: unless-stopped
+    ports:
+      - "7474:7474"
+      - "7687:7687"
+    environment:
+      - NEO4J_AUTH=neo4j/password
+      - NEO4J_dbms_default__listen__address=0.0.0.0
+      - NEO4J_dbms_default__advertised__address=neo4j
+    volumes:
+      - ./data/neo4j-data:/data
+      - ./data/neo4j-logs:/logs
+    networks:
+      - nosql-net
+
+  app:
+    build: ./app
+    container_name: nosql-app
+    working_dir: /app
+    volumes:
+      - ./app:/app
+      - ./data:/data
+    env_file:
+      - .env
+    depends_on:
+      - mongo
+      - neo4j
+    ports:
+      - "8501:8501"
+    networks:
+      - nosql-net
+
+networks:
+  nosql-net:
+    driver: bridge

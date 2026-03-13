@@ -1,0 +1,5 @@
+# Ignorer tout le dossier data
+data/*
+
+# Mais suivre ce fichier précis
+!data/movies-2.json
