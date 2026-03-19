@@ -3,3 +3,8 @@ data/*
 
 # Mais suivre ce fichier précis
 !data/movies-2.json
+app/tmp_query_check.py
+app/tmp_repro.py
+app/tmp_repro2.py
+__pycache__/
+*.pyc

@@ -148,7 +148,7 @@ elif section == "Neo4j – Questions 14–22":
         "Q19 – Films dans lesquels les acteurs ayant joué avec vous ont également joué"
     )
     nom_vous = st.text_input(
-        "Votre nom d’acteur dans le graphe (Q19)", value="Hugo"
+        "Votre nom d’acteur dans le graphe (Q19)", value="Scarlett Johansson"
     )
     if nom_vous:
         st.write(q19_films_avec_acteurs_ayant_joue_avec_vous(nom_vous))
@@ -222,7 +222,7 @@ elif section == "Neo4j – Avancé 23–30":
         "préférences d’un acteur"
     )
     acteur_q28 = st.text_input(
-        "Acteur de référence pour la recommandation (Q28)", value="Anne Hathaway"
+        "Acteur de référence pour la recommandation (Q28)", value="Scarlett Johansson"
     )
     if st.button("Recommander (Q28)"):
         st.write(q28_recommande_films_selon_preferences_acteur(acteur_q28))

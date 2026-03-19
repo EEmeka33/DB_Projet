@@ -16,6 +16,12 @@ services:
       - "27017:27017"
     volumes:
       - ./data/mongo-db:/data/db
+    healthcheck:
+      test: ["CMD", "mongosh", "--quiet", "--eval", "db.adminCommand('ping')"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 30s
     networks:
       - nosql-net
 
@@ -33,6 +39,12 @@ services:
     volumes:
       - ./data/neo4j-data:/data
       - ./data/neo4j-logs:/logs
+    healthcheck:
+      test: ["CMD", "cypher-shell", "-u", "neo4j", "-p", "password", "RETURN 1"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+      start_period: 30s
     networks:
       - nosql-net
 
@@ -46,8 +58,10 @@ services:
     env_file:
       - .env
     depends_on:
-      - mongo
-      - neo4j
+      mongo:
+        condition: service_healthy
+      neo4j:
+        condition: service_healthy
     ports:
       - "8501:8501"
     networks:

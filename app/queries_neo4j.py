@@ -60,7 +60,7 @@ def q19_films_avec_acteurs_ayant_joue_avec_vous(nom_acteur):
     """
     Q19 : Quels sont les films dans lesquels les acteurs ayant joué avec vous
     ont également joué ?
-    - nom_acteur : nom de l'acteur qui vous représente dans le graphe
+    - nom_acteur : nom de l'acteur qui vous représente dans le graphe (Scarlett Johansson, par exemple).
     """
     query = """
     MATCH (me:Actor {name: $nom})-[:A_JOUE]->(f1:Film)<-[:A_JOUE]-(a:Actor)
@@ -277,15 +277,15 @@ def q29_creer_relations_concurrence():
 def q30_collaborations_frequentes_succes():
     """
     Q30 – Collaborations les plus fréquentes entre réalisateurs et acteurs,
-    avec revenu moyen et note moyenne (rating).
+    avec revenu moyen et note moyenne (metascore).
     """
     query = """
     MATCH (r:Realisateur)-[:A_REALISE]->(f:Film)<-[:A_JOUE]-(a:Actor)
-    WHERE f.revenue IS NOT NULL
+    WHERE f.revenue IS NOT NULL AND f.metascore IS NOT NULL
     WITH r, a,
          count(f) AS nbFilms,
-         avg(f.revenue) AS revenuMoyen,
-         avg(f.rating)  AS noteMoyenne
+         avg(toFloat(f.revenue)) AS revenuMoyen,
+         avg(toFloat(f.metascore)) AS noteMoyenne
     WHERE nbFilms > 1
     RETURN
       r.name AS realisateur,
