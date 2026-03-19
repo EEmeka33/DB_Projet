@@ -21,7 +21,7 @@ nosql-projet/
     ├─ import_neo4j.py
     ├─ queries_mongo.py
     ├─ queries_neo4j.py
-    ├─ main.py
+    └─ main.py
 ```
 
 ## Description
