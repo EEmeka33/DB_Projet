@@ -180,7 +180,7 @@ elif section == "Neo4j – Avancé 23–30":
         "où il a déjà joué"
     )
     acteur_q23 = st.text_input(
-        "Nom de l’acteur pour la recommandation (Q23)", value="Anne Hathaway"
+        "Nom de l’acteur pour la recommandation (Q23)", value="Tom Hanks"
     )
     if st.button("Lancer la recommandation (Q23)"):
         st.write(q23_recommande_films_pour_acteur(acteur_q23))
