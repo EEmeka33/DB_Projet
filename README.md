@@ -1,5 +1,28 @@
 # Projet NoSQL ESIEA
 
+## Structure du projet
+
+nosql-projet/
+├─ docker-compose.yml
+├─ .env
+├─ data/
+│   ├─ movies-2.json
+│   ├─ mongo-db/        (sera créé par Mongo)
+│   ├─ neo4j-data/      (sera créé par Neo4j)
+│   └─ neo4j-logs/      (sera créé par Neo4j)
+└─ app/
+    ├─ Dockerfile
+    ├─ requirements.txt
+    ├─ config.py
+    ├─ db_mongo.py
+    ├─ db_neo4j.py
+    ├─ import_mongo.py
+    ├─ import_neo4j.py
+    ├─ queries_mongo.py
+    ├─ queries_neo4j.py
+    ├─ analysis.py
+    └─ main.py
+
 ## Description
 Un projet d’analyse et d’import de données filmographiques dans MongoDB et Neo4j avec une API Streamlit.
 
