@@ -21,6 +21,7 @@ nosql-projet/
     ├─ import_neo4j.py
     ├─ queries_mongo.py
     ├─ queries_neo4j.py
+    ├─ analysis.py
     └─ main.py
 ```
 
@@ -43,6 +44,7 @@ Le projet inclut :
   - `import_mongo.py` : import JSON dans MongoDB.
   - `import_neo4j.py` : import JSON dans Neo4j.
   - `queries_mongo.py`, `queries_neo4j.py` : requêtes métier pour chaque base.
+  - `analysis.py` : fonctions d’analyse/dashboards.
   - `requirements.txt` : dépendances Python.
   - `Dockerfile` : construction de l'image de service applicatif.
 - `data/` : fichiers de données et magasins d’état de bases.
