@@ -30,7 +30,7 @@ Un projet d’analyse et d’import de données filmographiques dans MongoDB et 
 Le projet inclut :
 - import des données JSON vers MongoDB (`import_mongo.py`) et Neo4j (`import_neo4j.py`).
 - stockage des données dans des bases MongoDB et Neo4j dans `data/mongo-db` et `data/neo4j-data`.
-- requêtage pour affichage, requêtes d’analyse et debug.
+- requêtage pour affichage.
 
 ## Structure du dépôt
 
