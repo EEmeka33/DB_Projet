@@ -81,3 +81,4 @@ Le projet inclut :
 - Assurez-vous que les ports `27017`, `7474`, `7687`, `8501` sont libres.
 - Les dossiers de données sont montés en volumes pour persistance.
 - Le mot de passe Neo4j est `password` comme indiqué dans `docker-compose.yml`.
+ Rafael Akoo Obono - Hugo Dos Reis - Elie Fellous
