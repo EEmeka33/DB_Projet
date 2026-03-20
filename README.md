@@ -43,7 +43,6 @@ Le projet inclut :
   - `import_mongo.py` : import JSON dans MongoDB.
   - `import_neo4j.py` : import JSON dans Neo4j.
   - `queries_mongo.py`, `queries_neo4j.py` : requêtes métier pour chaque base.
-  - `debug_queries.py` : requêtes de debug et exemples.
   - `requirements.txt` : dépendances Python.
   - `Dockerfile` : construction de l'image de service applicatif.
 - `data/` : fichiers de données et magasins d’état de bases.
@@ -53,7 +52,6 @@ Le projet inclut :
 ## Pré-requis
 
 - Docker + Docker Compose.
-- Python 3. ?
 
 ## Installation et exécution
 
@@ -61,11 +59,7 @@ Le projet inclut :
 2. Lancer `docker-compose build app`.
 3. Lancer `docker-compose up -d`.
 4. Attendre que les conteneurs `mongo` et `neo4j` soient en bonne santé (check logs et `docker ps`).
-5. Exécuter dans le conteneur app :
-   - `docker exec -it nosql-app bash`
-   - `python import_mongo.py`
-   - `python import_neo4j.py`
-6. Lancer l’application Streamlit (généralement `streamlit run main.py` à l’intérieur du conteneur ou en local selon configuration). Le service est exposé sur `http://localhost:8501`.
+5. Le service streamlit pour le frontend est exposé sur `http://localhost:8501`.
 
 ## Structure globale de l’application
 
